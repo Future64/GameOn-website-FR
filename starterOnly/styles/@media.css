@@ -1,43 +1,6 @@
-@media screen and (max-width: 768px) {
-    .topnav a {
-        display: none;
-    }
-    .topnav a.icon {
-        float: right;
-        display: block;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .topnav.responsive {
-        position: relative;
-    }
-    .topnav.responsive .icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-    .topnav.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
-    }
-}
-
-@media screen and (max-width: 540px) {
-    .topnav a {
-        display: none;
-    }
-    .topnav a.icon {
-        float: right;
-        display: block;
-        margin-top: -15px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .bground {
-        top: 75px
+@media screen and (max-width: 950px) {
+    .hero-headline {
+        font-size: 80px;
     }
 }
 
@@ -62,6 +25,7 @@
         white-space: normal;
     }
     .hero-text {
+        display: block;
         width: unset;
         font-size: 1.5rem;
     }
@@ -77,5 +41,63 @@
     .copyrights {
         margin-top: 50px;
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .topnav a {
+        display: none;
+    }
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+    .topnav.responsive {
+        position: relative;
+    }
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    .bground {
+        top: 75px
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .topnav a {
+        display: none;
+    }
+    .topnav a.icon {
+        float: right;
+        display: block;
+        /* margin-top: -15px; */
+    }
+    .hero-content {
+        min-width: none;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .hero-content {
+        min-width: 0;
+    }
+    .hero-headline {
+        font-size: 50px;
+    }
+    .hero-headline {
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .topnav a.icon {
+        margin-top: -45px;
     }
 }
