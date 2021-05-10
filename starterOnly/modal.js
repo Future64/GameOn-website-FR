@@ -16,14 +16,8 @@ const birthdate = document.getElementById("birthdate");
 const formData = document.querySelectorAll(".formData");
 
 // Importation Elements Checkbox
-const newYork = document.getElementById("location1");
-const sanFrancisco = document.getElementById("location2");
-const seattle = document.getElementById("location3");
-const chicago = document.getElementById("location4");
-const boston = document.getElementById("location5");
-const portland = document.getElementById("location6");
-const checkbox1 = document.getElementById("checkbox1");
-const checkbox2 = document.getElementById("checkbox2");
+const cities = document.querySelectorAll(".city");
+const cgu = document.getElementById("checkbox1");
 
 // Importation DOM error : 
 const missFirst = document.getElementById("missFirst");
@@ -37,26 +31,8 @@ const closeConf = document.querySelector(".closeConfirmation");
 const confirmationbg = document.getElementById("confirmation");
 
 // Create REGEX :
-const nameValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zA-Zéèêàçîï]+([-"\s][a-zA-ZéèîïÉÈÎÏ][a-zA-Zéèêàçîï]+)?$/;
 const emailValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const dateValid = /^\d{4}-\d{2}-\d{2}$/;
-
-
-/* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
-/* ----------------EVENTS--------------------- */
-/* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
-
-// launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-
-// Close modal
-formClose.forEach((elt) => elt.addEventListener("click", closeModal));
-
-// on récupère l'évènement "event" au click du boutton "submit"
-btnSubmit.addEventListener("click", (e) => {
-    e.preventDefault();
-    onClickSubmit(e);
-})
 
 
 /* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
@@ -83,29 +59,68 @@ function closeModal() {
     modalbg.style.display = "none";
 }
 
+
+const checkInputNames = () => {
+    if (first.value.length <= 2) {
+        console.log("Pas bon le prénom");
+    } 
+    else if (last.value.length <= 2) {
+        console.log("Pas bon le nom");
+    }
+    else {
+        console.log("Tout est ok")
+    }
+}
+
+const checkInputEmail = () => {
+
+}
+
+const checkInputDate = () => {
+    
+}
+
+const checkInputQty = () => {
+    
+}
+
+const checkInputCities = () => {
+    
+}
+
+const checkInputCgu = () => {
+    
+}
+
 const onClickSubmit = () => {
 
-    if (first == null) {
-        let name = first.value;
-        checkInputText(name);
-    } else {
-        missFirst += document.innerHTML("Trop nul c'est vide!")
-    }
-    if (last == null) {
-        let namel = first.value;
-        checkInputText(namel);
-    } else {
-        console.log("2 - Formulaire problème!");
-    }
+    checkInputNames();
+    // checkInputEmail();
+    // checkInputDate();
+    // checkInputQty();
+    // checkInputCities();
+    // checkInputCgu();
 }
 
-const checkInputText = (name) => {
-    if (name.length <= 2) {
-        console.log("Pas bon");
-    } else {
-        console.log([name]);
-    }
-}
+
+
+/* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
+/* ----------------EVENTS--------------------- */
+/* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
+
+// launch modal event
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+
+// Close modal
+formClose.forEach((elt) => elt.addEventListener("click", closeModal));
+
+// on récupère l'évènement "event" au click du boutton "submit"
+btnSubmit.addEventListener("click", (e) => {
+    e.preventDefault();
+    onClickSubmit(e);
+})
+
+
 
 
 
