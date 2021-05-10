@@ -2,20 +2,20 @@
 /* ----------------DOM ELEMENTS--------------- */
 /* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
 
-// DOM modal Elements
+// Importation DOM modal Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formClose = document.querySelectorAll("#close");
 const btnSubmit = document.querySelector(".btn-submit");
 
-// DOM input
+// Importation DOM input
 const first = document.getElementById("first");
 const last = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const formData = document.querySelectorAll(".formData");
 
-// DOM Elements Checkbox
+// Importation Elements Checkbox
 const newYork = document.getElementById("location1");
 const sanFrancisco = document.getElementById("location2");
 const seattle = document.getElementById("location3");
@@ -25,21 +25,22 @@ const portland = document.getElementById("location6");
 const checkbox1 = document.getElementById("checkbox1");
 const checkbox2 = document.getElementById("checkbox2");
 
-//DOM error : 
-const missQuantity = document.getElementById("missQuantity");
+// Importation DOM error : 
 const missFirst = document.getElementById("missFirst");
 const missLast = document.getElementById("missLast");
 const missEmail = document.getElementById("missEmail");
 const missDate = document.getElementById("missDate");
+const missQuantity = document.getElementById("missQuantity");
 
-// REGEX :
+// Importation DOM confirmation 
+const closeConf = document.querySelector(".closeConfirmation");
+const confirmationbg = document.getElementById("confirmation");
+
+// Create REGEX :
 const nameValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zA-Zéèêàçîï]+([-"\s][a-zA-ZéèîïÉÈÎÏ][a-zA-Zéèêàçîï]+)?$/;
 const emailValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const dateValid = /^\d{4}-\d{2}-\d{2}$/;
 
-// DOM confirmation 
-const closeConf = document.querySelector(".closeConfirmation");
-const confirmationbg = document.getElementById("confirmation");
 
 
 
@@ -56,7 +57,7 @@ formClose.forEach((elt) => elt.addEventListener("click", closeModal));
 // on récupère l'évènement "event" au click du boutton "submit"
 btnSubmit.addEventListener("click", (e) => {
     e.preventDefault();
-    onClickSubmit(e)
+    onClickSubmit(e);
 })
 
 
@@ -90,7 +91,7 @@ const onClickSubmit = () => {
         let name = first.value;
         checkInputText(name);
     } else {
-        console.log("1 - Formulaire problème!");
+        missFirst += document.innerHTML("Trop nul c'est vide!")
     }
     if (last == null) {
         let namel = first.value;
