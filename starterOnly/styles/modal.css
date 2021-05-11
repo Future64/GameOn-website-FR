@@ -397,8 +397,7 @@ footer {
     }
 }
 
-#missFirst,
-#missLast {
+#missFirst, #missLast, #missEmail, #missBirthdate, #missQuantity, #missLocation {
     font-size: 15px;
     color: red;
 }
