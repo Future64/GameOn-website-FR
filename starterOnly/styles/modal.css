@@ -396,3 +396,9 @@ footer {
         opacity: 1;
     }
 }
+
+#missFirst,
+#missLast {
+    font-size: 15px;
+    color: red;
+}

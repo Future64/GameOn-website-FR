@@ -13,6 +13,7 @@ const first = document.getElementById("first");
 const last = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
+const qty = document.getElementById("quantity");
 const formData = document.querySelectorAll(".formData");
 
 // Importation Elements Checkbox
@@ -23,7 +24,7 @@ const cgu = document.getElementById("checkbox1");
 const missFirst = document.getElementById("missFirst");
 const missLast = document.getElementById("missLast");
 const missEmail = document.getElementById("missEmail");
-const missDate = document.getElementById("missDate");
+const missDate = document.getElementById("missBirthdate");
 const missQuantity = document.getElementById("missQuantity");
 
 // Importation DOM confirmation 
@@ -33,6 +34,26 @@ const confirmationbg = document.getElementById("confirmation");
 // Create REGEX :
 const emailValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const dateValid = /^\d{4}-\d{2}-\d{2}$/;
+
+
+/* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
+/* ----------------LOGIC---------------------- */
+/* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
+
+// const noGoodFirst = "";
+// missFirst.innerHTML = noGoodFirst;
+
+// const noGoodLast = "";
+// missLast.innerHTML = noGoodLast;
+
+// const noGoodEmail = "";
+// missEmail.innerHTML = noGoodEmail;
+
+// const noGoodDate = "";
+// missDate.innerHTML = noGoodDate;
+
+// const noGoodQty = "";
+// missQuantity.innerHTML = noGoodQty;
 
 
 /* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
@@ -63,53 +84,59 @@ function closeModal() {
 const checkInputNames = () => {
     if (first.value.length <= 2) {
         console.log("Pas bon le prénom");
-    } 
-    else if (last.value.length <= 2) {
+        missFirst.innerHTML += "Pas bon le prénom";
+    } else if (last.value.length <= 2) {
         console.log("Pas bon le nom");
-    }
-    else {
+        missLast.innerHTML += "Pas bon le nom";
+    } else {
         console.log("Tout est ok")
     }
 }
 
 // check if email is valid with Regex
 const checkInputEmail = () => {
-    if (email.value == emailValid) {
+    if (emailValid.test(email.value)) {
         console.log("Email bien ecrit")
-    }
-    else {
+    } else {
         console.log("Faut bien écrire l'email mon coco")
+        missEmail.innerHTML += "Email de merde !'";
     }
 }
 
 // check if date is valid with Regex
 const checkInputDate = () => {
-    if (birthdate.value == dateValid) {
+    if (dateValid.test(birthdate.value)) {
         console.log("Date bien ecrit")
-    }
-    else {
+    } else {
         console.log("Mais faut écrire la date comme il faut là !!!")
-    }  
+        missDate.innerHTML += "Pas bon la date putain!";
+    }
 }
 
+// check if qty is valid with this condition
 const checkInputQty = () => {
-    
+    if (qty.value >= 0 && qty.value <= 99) {
+        console.log("Bonne quantité")
+    } else {
+        console.log("Quantité de merde")
+        missQuantity.innerHTML += "Pas bon la quantité putain!";
+    }
 }
 
 const checkInputCities = () => {
-    
+
 }
 
 const checkInputCgu = () => {
-    
+
 }
 
 const onClickSubmit = () => {
 
     checkInputNames();
     checkInputEmail();
-    // checkInputDate();
-    // checkInputQty();
+    checkInputDate();
+    checkInputQty();
     // checkInputCities();
     // checkInputCgu();
 }
