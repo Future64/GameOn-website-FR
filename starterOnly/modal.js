@@ -15,6 +15,7 @@ const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const qty = document.getElementById("quantity");
 const formData = document.querySelectorAll(".formData");
+// const location = document.querySelectorAll("location");
 
 // Importation Elements Checkbox
 const cities = document.querySelectorAll(".city");
@@ -26,6 +27,7 @@ const missLast = document.getElementById("missLast");
 const missEmail = document.getElementById("missEmail");
 const missDate = document.getElementById("missBirthdate");
 const missQuantity = document.getElementById("missQuantity");
+const missLocation = document.getElementById("missLocation");
 
 // Importation DOM confirmation 
 const closeConf = document.querySelector(".closeConfirmation");
@@ -80,16 +82,17 @@ function closeModal() {
     modalbg.style.display = "none";
 }
 
-// check if input last and first are bigger of 2
+// check if input last and first are bigger than 2
 const checkInputNames = () => {
     if (first.value.length <= 2) {
-        console.log("Pas bon le prénom");
-        missFirst.innerHTML += "Pas bon le prénom";
+        console.log("Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
+        missFirst.innerHTML += "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
     } else if (last.value.length <= 2) {
-        console.log("Pas bon le nom");
-        missLast.innerHTML += "Pas bon le nom";
+        console.log("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
+        missLast.innerHTML += "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
     } else {
-        console.log("Tout est ok")
+        console.log("Le prénom ainsi que le nom sont correctement écrit.");
+        missFirst.innerHTML += "";
     }
 }
 
@@ -98,8 +101,8 @@ const checkInputEmail = () => {
     if (emailValid.test(email.value)) {
         console.log("Email bien ecrit")
     } else {
-        console.log("Faut bien écrire l'email mon coco")
-        missEmail.innerHTML += "Email de merde !'";
+        console.log("Veuillez entrer un email valide.")
+        missEmail.innerHTML += "Veuillez entrer un email valide.";
     }
 }
 
@@ -108,23 +111,34 @@ const checkInputDate = () => {
     if (dateValid.test(birthdate.value)) {
         console.log("Date bien ecrit")
     } else {
-        console.log("Mais faut écrire la date comme il faut là !!!")
-        missDate.innerHTML += "Pas bon la date putain!";
+        console.log("Veuillez entrer une date de naissance valide.")
+        missDate.innerHTML += "Veuillez entrer une date de naissance valide.";
     }
 }
 
 // check if qty is valid with this condition
 const checkInputQty = () => {
-    if (qty.value >= 0 && qty.value <= 99) {
-        console.log("Bonne quantité")
+    if (qty.value >= 1 && qty.value <= 99) {
+        console.log("Bonne quantité");
     } else {
-        console.log("Quantité de merde")
-        missQuantity.innerHTML += "Pas bon la quantité putain!";
+        console.log("Veuillez entrer une valeur numérique valide.")
+        missQuantity.innerHTML += "Veuillez entrer une valeur numérique valide.";
     }
 }
 
 const checkInputCities = () => {
-
+    var location = "";
+    for (var i = 0; i < location.length; i++) {
+        if (location[i].checked) {
+            location = location[i].value;
+            break;
+        }
+    }
+    if (location == "") {
+        missLocation.innerHTML += "Veuillez choisir une ville.";
+    } else {
+        console.log("location");
+    }
 }
 
 const checkInputCgu = () => {
@@ -137,7 +151,7 @@ const onClickSubmit = () => {
     checkInputEmail();
     checkInputDate();
     checkInputQty();
-    // checkInputCities();
+    checkInputCities();
     // checkInputCgu();
 }
 

@@ -397,7 +397,13 @@ footer {
     }
 }
 
-#missFirst, #missLast, #missEmail, #missBirthdate, #missQuantity, #missLocation {
-    font-size: 15px;
-    color: red;
+#missFirst,
+#missLast,
+#missEmail,
+#missBirthdate,
+#missQuantity,
+#missLocation {
+    font-size: 14px;
+    font-weight: lighter;
+    color: #FE142E;
 }
