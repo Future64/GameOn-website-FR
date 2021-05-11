@@ -59,7 +59,7 @@ function closeModal() {
     modalbg.style.display = "none";
 }
 
-
+// check if input last and first are bigger of 2
 const checkInputNames = () => {
     if (first.value.length <= 2) {
         console.log("Pas bon le prénom");
@@ -72,12 +72,24 @@ const checkInputNames = () => {
     }
 }
 
+// check if email is valid with Regex
 const checkInputEmail = () => {
-
+    if (email.value == emailValid) {
+        console.log("Email bien ecrit")
+    }
+    else {
+        console.log("Faut bien écrire l'email mon coco")
+    }
 }
 
+// check if date is valid with Regex
 const checkInputDate = () => {
-    
+    if (birthdate.value == dateValid) {
+        console.log("Date bien ecrit")
+    }
+    else {
+        console.log("Mais faut écrire la date comme il faut là !!!")
+    }  
 }
 
 const checkInputQty = () => {
@@ -95,7 +107,7 @@ const checkInputCgu = () => {
 const onClickSubmit = () => {
 
     checkInputNames();
-    // checkInputEmail();
+    checkInputEmail();
     // checkInputDate();
     // checkInputQty();
     // checkInputCities();
