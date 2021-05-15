@@ -1,5 +1,42 @@
 /* ººººººººººººººººººººººººººººººººººººººººººº */
-/*                     INITIALISATION VARIABLE */
+/*                 DOM ELEMENTS                */
+/* ººººººººººººººººººººººººººººººººººººººººººº */
+
+// Import DOM modal Elements
+const modalbg = document.querySelector(".bground");
+const modalBtn = document.querySelectorAll(".modal-btn");
+const formClose = document.querySelectorAll("#close");
+const btnSubmit = document.querySelector(".btn-submit");
+
+// Import DOM input
+const first = document.getElementById("first");
+const last = document.getElementById("last");
+const email = document.getElementById("email");
+const birthdate = document.getElementById("birthdate");
+const qty = document.getElementById("quantity");
+const formData = document.querySelectorAll(".formData");
+// const location = document.querySelectorAll("location");
+
+// Import Elements Checkbox
+const cities = document.querySelectorAll(".city");
+const cgu = document.getElementById("checkbox1");
+
+// Importation DOM error : 
+const missFirst = document.getElementById("missFirst");
+const missLast = document.getElementById("missLast");
+const missEmail = document.getElementById("missEmail");
+const missDate = document.getElementById("missBirthdate");
+const missQuantity = document.getElementById("missQuantity");
+const missLocation = document.getElementById("missLocation");
+
+// Import DOM confirmation 
+const closeConf = document.querySelector(".closeConfirmation");
+const confirmationbg = document.getElementById("confirmation");
+
+
+
+/* ººººººººººººººººººººººººººººººººººººººººººº */
+/*            INITIALISATION VARIABLE          */
 /* ººººººººººººººººººººººººººººººººººººººººººº */
 
 // Create ERROR MESSAGE :
@@ -15,45 +52,9 @@ const emailValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+")
 const dateValid = /^\d{4}-\d{2}-\d{2}$/;
 
 
-/* ººººººººººººººººººººººººººººººººººººººººººº */
-/*                                DOM ELEMENTS */
-/* ººººººººººººººººººººººººººººººººººººººººººº */
-
-// Importation DOM modal Elements
-const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const formClose = document.querySelectorAll("#close");
-const btnSubmit = document.querySelector(".btn-submit");
-
-// Importation DOM input
-const first = document.getElementById("first");
-const last = document.getElementById("last");
-const email = document.getElementById("email");
-const birthdate = document.getElementById("birthdate");
-const qty = document.getElementById("quantity");
-const formData = document.querySelectorAll(".formData");
-// const location = document.querySelectorAll("location");
-
-// Importation Elements Checkbox
-const cities = document.querySelectorAll(".city");
-const cgu = document.getElementById("checkbox1");
-
-// Importation DOM error : 
-const missFirst = document.getElementById("missFirst");
-const missLast = document.getElementById("missLast");
-const missEmail = document.getElementById("missEmail");
-const missDate = document.getElementById("missBirthdate");
-const missQuantity = document.getElementById("missQuantity");
-const missLocation = document.getElementById("missLocation");
-
-// Importation DOM confirmation 
-const closeConf = document.querySelector(".closeConfirmation");
-const confirmationbg = document.getElementById("confirmation");
-
-
 
 /* ººººººººººººººººººººººººººººººººººººººººººº */
-/*                                      EVENTS */
+/*                    EVENTS                   */
 /* ººººººººººººººººººººººººººººººººººººººººººº */
 
 // launch modal event
@@ -71,7 +72,7 @@ btnSubmit.addEventListener("click", (e) => {
 
 
 /* ººººººººººººººººººººººººººººººººººººººººººº */
-/*                                   FUNCTIONS */
+/*                  FUNCTIONS                  */
 /* ººººººººººººººººººººººººººººººººººººººººººº */
 
 // Start modal
@@ -94,8 +95,9 @@ function closeModal() {
     modalbg.style.display = "none";
 }
 
+//       ––––––––––––––––––––       \\ 
+// ----- CHECK INPUT FUNCTION ----- \\
 
-/* ----- CHECK INPUT FUNCTION ----- */
 
 // check if input last and first are bigger than 2
 const checkInputNames = () => {
@@ -141,7 +143,7 @@ const checkInputQty = () => {
     }
 }
 
-// check if location is checked with this condition
+// check if location is checked with this condition ????
 const checkInputCities = () => {
     var location = "";
     for (var i = 0; i < location.length; i++) {
@@ -162,7 +164,8 @@ const checkInputCgu = () => {
 
 }
 
-/* ----- VALIDATION FUNCTION ----- */
+//       –––––––––––––––––––       \\ 
+// ----- VALIDATION FUNCTION ----- \\  
 
 // Form main validation
 const onClickSubmit = () => {
