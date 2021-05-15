@@ -402,8 +402,9 @@ footer {
 #missEmail,
 #missBirthdate,
 #missQuantity,
-#missLocation {
+#missLocation,
+#missConditions {
     font-size: 14px;
-    font-weight: lighter;
+    /* font-weight: lighter; */
     color: #FE142E;
 }

@@ -14,12 +14,13 @@ const last = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const qty = document.getElementById("quantity");
-const formData = document.querySelectorAll(".formData");
+const formCgu = document.querySelectorAll(".formCgu");
 // const location = document.querySelectorAll("location");
 
 // Import Elements Checkbox
 const cities = document.querySelectorAll(".city");
 const cgu = document.getElementById("checkbox1");
+const nextEvent = document.getElementById("checkbox2");
 
 // Importation DOM error : 
 const missFirst = document.getElementById("missFirst");
@@ -28,6 +29,7 @@ const missEmail = document.getElementById("missEmail");
 const missDate = document.getElementById("missBirthdate");
 const missQuantity = document.getElementById("missQuantity");
 const missLocation = document.getElementById("missLocation");
+const missConditions = document.getElementById("missConditions");
 
 // Import DOM confirmation 
 const closeConf = document.querySelector(".closeConfirmation");
@@ -46,6 +48,7 @@ const noGoodEmail = "Veuillez entrer un email valide.";
 const noGoodDate = "Veuillez entrer une date de naissance valide.";
 const noGoodQty = "Veuillez entrer une valeur numérique valide.";
 const noGoodCity = "Veuillez choisir une ville.";
+const noGoodConditions = "Veillez cocher la case pour valider le formulaire.";
 
 // Create REGEX :
 const emailValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -95,6 +98,7 @@ function closeModal() {
     modalbg.style.display = "none";
 }
 
+
 //       ––––––––––––––––––––       \\ 
 // ----- CHECK INPUT FUNCTION ----- \\
 
@@ -108,7 +112,8 @@ const checkInputNames = () => {
         console.log(noGoodLast);
         missLast.innerHTML += noGoodLast;
     } else {
-        console.log("Le prénom ainsi que le nom sont correctement écrit.");
+        console.log(first.value);
+        console.log(last.value);
         missFirst.innerHTML += "";
     }
 }
@@ -116,7 +121,7 @@ const checkInputNames = () => {
 // check if email is valid with Regex
 const checkInputEmail = () => {
     if (emailValid.test(email.value)) {
-        console.log("Email bien ecrit");
+        console.log(email.value);
     } else {
         console.log(noGoodEmail)
         missEmail.innerHTML += noGoodEmail;
@@ -126,7 +131,7 @@ const checkInputEmail = () => {
 // check if date is valid with Regex
 const checkInputDate = () => {
     if (dateValid.test(birthdate.value)) {
-        console.log("Date bien ecrit");
+        console.log(birthdate.value);
     } else {
         console.log(noGoodDate);
         missDate.innerHTML += noGoodDate;
@@ -136,7 +141,7 @@ const checkInputDate = () => {
 // check if qty is valid with this condition
 const checkInputQty = () => {
     if (qty.value >= 1 && qty.value <= 99) {
-        console.log("Bonne quantité");
+        console.log(qty.value);
     } else {
         console.log(noGoodQty)
         missQuantity.innerHTML += noGoodQty;
@@ -149,8 +154,8 @@ const checkInputCities = () => {
     for (var i = 0; i < location.length; i++) {
         if (location[i].checked) {
             location = location[i].value;
-            break;
         }
+        break;
     }
     if (location == "") {
         missLocation.innerHTML += noGoodCity;
@@ -162,7 +167,24 @@ const checkInputCities = () => {
 
 const checkInputCgu = () => {
 
+    if (cgu.checked == true) {
+        console.log("CGU OK");
+        missConditions.innerHTML += "";
+    } else {
+        missConditions.innerHTML += noGoodConditions;
+        console.log(noGoodConditions);
+    }
 }
+
+const checkInputEvt = () => {
+
+    if (nextEvent.checked == true) {
+        console.log("Oui je veux être prévenu des prochains évènements.");
+    } else {
+        console.log("Non je veux ne veut pas être prévenu des prochains évènements.");
+    }
+}
+
 
 //       –––––––––––––––––––       \\ 
 // ----- VALIDATION FUNCTION ----- \\  
@@ -174,5 +196,6 @@ const onClickSubmit = () => {
     checkInputDate();
     checkInputQty();
     checkInputCities();
-    // checkInputCgu();
+    checkInputCgu();
+    checkInputEvt();
 }
