@@ -150,12 +150,12 @@ const checkInputQty = () => {
 
 // check if location is checked with this condition ????
 const checkInputCities = () => {
-    var location = "";
+    // var location = "";
     for (var i = 0; i < location.length; i++) {
-        if (location[i].checked) {
+        if (location[i].checked == true) {
             location = location[i].value;
         }
-        break;
+        i++;
     }
     if (location == "") {
         missLocation.innerHTML += noGoodCity;
@@ -165,6 +165,7 @@ const checkInputCities = () => {
     }
 }
 
+// check if checkbox1 is checked with this condition
 const checkInputCgu = () => {
 
     if (cgu.checked == true) {
@@ -176,6 +177,7 @@ const checkInputCgu = () => {
     }
 }
 
+// check if checkbox2 is checked with this condition
 const checkInputEvt = () => {
 
     if (nextEvent.checked == true) {
