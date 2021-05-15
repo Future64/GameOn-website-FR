@@ -60,6 +60,7 @@ const noGoodConditions = "Veillez cocher la case pour valider le formulaire.";
 const emailValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const dateValid = /^\d{4}-\d{2}-\d{2}$/;
 
+let nbValidForm = "";
 
 
 /* ººººººººººººººººººººººººººººººººººººººººººº */
@@ -121,6 +122,7 @@ const checkInputNames = () => {
         console.log(first.value);
         console.log(last.value);
         missFirst.innerHTML += "";
+        nbValidForm = 1;
     }
 }
 
@@ -128,6 +130,7 @@ const checkInputNames = () => {
 const checkInputEmail = () => {
     if (emailValid.test(email.value)) {
         console.log(email.value);
+        nbValidForm = 2;
     } else {
         console.log(noGoodEmail)
         missEmail.innerHTML += noGoodEmail;
@@ -138,6 +141,7 @@ const checkInputEmail = () => {
 const checkInputDate = () => {
     if (dateValid.test(birthdate.value)) {
         console.log(birthdate.value);
+        nbValidForm = 3;
     } else {
         console.log(noGoodDate);
         missDate.innerHTML += noGoodDate;
@@ -148,6 +152,7 @@ const checkInputDate = () => {
 const checkInputQty = () => {
     if (qty.value >= 1 && qty.value <= 99) {
         console.log(qty.value);
+        nbValidForm = 4;
     } else {
         console.log(noGoodQty)
         missQuantity.innerHTML += noGoodQty;
@@ -168,6 +173,7 @@ const checkInputCities = () => {
     } else {
         console.log(cities.checked);
         missLocation.innerHTML += "";
+        nbValidForm = 5;
     }
 }
 
@@ -177,6 +183,7 @@ const checkInputCgu = () => {
     if (cgu.checked == true) {
         console.log("CGU OK");
         missConditions.innerHTML += "";
+        nbValidForm = 6;
     } else {
         missConditions.innerHTML += noGoodConditions;
         console.log(noGoodConditions);
@@ -198,8 +205,12 @@ const checkInputEvt = () => {
 // ----- VALIDATION FUNCTION ----- \\  
 
 // Message validation of form
-const validForm = () => {
-    confirmationbg.style.display = "flex"
+const checkValidForm = () => {
+    if (nbValidForm <= 5){
+        confirmationbg.style.display = "none"
+    } else {
+        confirmationbg.style.display = "flex"
+    }
 }
 
 // Form main validation
@@ -211,5 +222,5 @@ const onClickSubmit = () => {
     checkInputCities();
     checkInputCgu();
     checkInputEvt();
-    validForm();
+    checkValidForm();
 }
