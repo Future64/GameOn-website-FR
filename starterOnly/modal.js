@@ -14,11 +14,17 @@ const last = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const qty = document.getElementById("quantity");
-const formCgu = document.querySelectorAll(".formCgu");
+
 // const location = document.querySelectorAll("location");
 
 // Import Elements Checkbox
-const cities = document.querySelectorAll(".city");
+const newYork = document.getElementById("location1");
+const sanFransisco = document.getElementById("location2");
+const seattle = document.getElementById("location3");
+const chicago = document.getElementById("location4");
+const boston = document.getElementById("location5");
+const portland = document.getElementById("location6");
+const cities = [newYork, sanFransisco, seattle, chicago, boston, portland];
 const cgu = document.getElementById("checkbox1");
 const nextEvent = document.getElementById("checkbox2");
 
@@ -148,19 +154,19 @@ const checkInputQty = () => {
     }
 }
 
-// check if location is checked with this condition ????
+// check if cities[tab] is checked with this condition ????
 const checkInputCities = () => {
-    // var location = "";
-    for (var i = 0; i < location.length; i++) {
-        if (location[i].checked == true) {
-            location = location[i].value;
+
+    for (var i = 0; i < cities.length; i++) {
+        if (cities[i].checked == true) {
+            cities.checked = cities[i].value;
         }
-        i++;
     }
-    if (location == "") {
+    if (cities.value == false || cities.checked == undefined) {
         missLocation.innerHTML += noGoodCity;
+        console.log(noGoodCity);
     } else {
-        console.log(location);
+        console.log(cities.checked);
         missLocation.innerHTML += "";
     }
 }
