@@ -1,4 +1,16 @@
 /* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
+/* ----------------INITIALISATION VARIABLE---- */
+/* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
+
+const noGoodFirst = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
+const noGoodLast = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+const noGoodEmail = "Veuillez entrer un email valide.";
+const noGoodDate = "Veuillez entrer une date de naissance valide.";
+const noGoodQty = "Veuillez entrer une valeur numérique valide.";
+const noGoodCity = "Veuillez choisir une ville.";
+
+
+/* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
 /* ----------------DOM ELEMENTS--------------- */
 /* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
 
@@ -38,25 +50,6 @@ const emailValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+")
 const dateValid = /^\d{4}-\d{2}-\d{2}$/;
 
 
-/* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
-/* ----------------LOGIC---------------------- */
-/* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
-
-// const noGoodFirst = "";
-// missFirst.innerHTML = noGoodFirst;
-
-// const noGoodLast = "";
-// missLast.innerHTML = noGoodLast;
-
-// const noGoodEmail = "";
-// missEmail.innerHTML = noGoodEmail;
-
-// const noGoodDate = "";
-// missDate.innerHTML = noGoodDate;
-
-// const noGoodQty = "";
-// missQuantity.innerHTML = noGoodQty;
-
 
 /* ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ */
 /* ----------------FUNCTIONS------------------ */
@@ -85,11 +78,11 @@ function closeModal() {
 // check if input last and first are bigger than 2
 const checkInputNames = () => {
     if (first.value.length <= 2) {
-        console.log("Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
-        missFirst.innerHTML += "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
+        console.log(noGoodFirst);
+        missFirst.innerHTML += noGoodFirst;
     } else if (last.value.length <= 2) {
-        console.log("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
-        missLast.innerHTML += "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+        console.log(noGoodLast);
+        missLast.innerHTML += noGoodLast;
     } else {
         console.log("Le prénom ainsi que le nom sont correctement écrit.");
         missFirst.innerHTML += "";
@@ -99,20 +92,20 @@ const checkInputNames = () => {
 // check if email is valid with Regex
 const checkInputEmail = () => {
     if (emailValid.test(email.value)) {
-        console.log("Email bien ecrit")
+        console.log("Email bien ecrit");
     } else {
-        console.log("Veuillez entrer un email valide.")
-        missEmail.innerHTML += "Veuillez entrer un email valide.";
+        console.log(noGoodEmail)
+        missEmail.innerHTML += noGoodEmail;
     }
 }
 
 // check if date is valid with Regex
 const checkInputDate = () => {
     if (dateValid.test(birthdate.value)) {
-        console.log("Date bien ecrit")
+        console.log("Date bien ecrit");
     } else {
-        console.log("Veuillez entrer une date de naissance valide.")
-        missDate.innerHTML += "Veuillez entrer une date de naissance valide.";
+        console.log(noGoodDate);
+        missDate.innerHTML += noGoodDate;
     }
 }
 
@@ -135,9 +128,10 @@ const checkInputCities = () => {
         }
     }
     if (location == "") {
-        missLocation.innerHTML += "Veuillez choisir une ville.";
+        missLocation.innerHTML += noGoodCity;
     } else {
-        console.log("location");
+        console.log(location);
+        missLocation.innerHTML += "";
     }
 }
 
@@ -145,6 +139,7 @@ const checkInputCgu = () => {
 
 }
 
+// Form main validation
 const onClickSubmit = () => {
 
     checkInputNames();
