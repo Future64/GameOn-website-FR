@@ -197,6 +197,11 @@ const checkInputEvt = () => {
 //       –––––––––––––––––––       \\ 
 // ----- VALIDATION FUNCTION ----- \\  
 
+// Message validation of form
+const validForm = () => {
+    confirmationbg.style.display = "flex"
+}
+
 // Form main validation
 const onClickSubmit = () => {
     checkInputNames();
@@ -206,4 +211,5 @@ const onClickSubmit = () => {
     checkInputCities();
     checkInputCgu();
     checkInputEvt();
+    validForm();
 }

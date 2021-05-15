@@ -408,3 +408,24 @@ footer {
     /* font-weight: lighter; */
     color: #FE142E;
 }
+
+.confirmation {
+    display: none;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 5% auto;
+    width: 100%;
+    height: 90%;
+    max-width: 500px;
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+    background: #232323;
+    border-radius: 10px;
+    overflow: hidden;
+    position: absolute;
+    z-index: 55;
+    top: 20px;
+    color: #fff;
+    /* padding-top: 10px; */
+}
