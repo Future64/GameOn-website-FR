@@ -67,6 +67,7 @@ const nbValidationText = "/7 de champs validés";
 const cities = [newYork, sanFransisco, seattle, chicago, boston, portland];
 
 
+
 /* ººººººººººººººººººººººººººººººººººººººººººº */
 /*                    EVENTS                   */
 /* ººººººººººººººººººººººººººººººººººººººººººº */
