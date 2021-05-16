@@ -66,6 +66,8 @@ const nbValidationText = "/7 de champs validés";
 // Create array for gather each location :
 const cities = [newYork, sanFransisco, seattle, chicago, boston, portland];
 
+// Create cguText :
+let cguText = "Accepté";
 
 
 /* ººººººººººººººººººººººººººººººººººººººººººº */
@@ -126,8 +128,8 @@ const checkInputNames = () => {
         missLast.innerHTML += noGoodLast;
         nbValidForm--;
     } else {
-        console.log(first.value);
-        console.log(last.value);
+        console.log("Prénom: " + first.value);
+        console.log("Nom: " + last.value);
         missFirst.innerHTML += "";
     }
 }
@@ -135,7 +137,7 @@ const checkInputNames = () => {
 // check if email is valid with Regex :
 const checkInputEmail = () => {
     if (emailValid.test(email.value)) {
-        console.log(email.value);
+        console.log("Email: " + email.value);
 
     } else {
         console.error(noGoodEmail)
@@ -147,7 +149,7 @@ const checkInputEmail = () => {
 // check if date is valid with Regex :
 const checkInputDate = () => {
     if (dateValid.test(birthdate.value)) {
-        console.log(birthdate.value);
+        console.log("Date de naissance: " + birthdate.value);
     } else {
         console.error(noGoodDate);
         missDate.innerHTML += noGoodDate;
@@ -158,7 +160,7 @@ const checkInputDate = () => {
 // check if qty is valid with this condition :
 const checkInputQty = () => {
     if (qty.value >= 1 && qty.value <= 99) {
-        console.log(qty.value);
+        console.log("Nombres de tournois participé: " + qty.value);
 
     } else {
         console.error(noGoodQty)
@@ -180,7 +182,7 @@ const checkInputCities = () => {
         console.error(noGoodCity);
         nbValidForm--;
     } else {
-        console.log(cities.checked);
+        console.log("Ville: " + cities.checked);
         missLocation.innerHTML += "";
     }
 }
@@ -189,7 +191,7 @@ const checkInputCities = () => {
 const checkInputCgu = () => {
 
     if (cgu.checked == true) {
-        console.log("CGU OK");
+        console.log("Condition générale d'utilisation: " + cguText);
         missConditions.innerHTML += "";
 
     } else {
