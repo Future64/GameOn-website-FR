@@ -73,6 +73,14 @@ let cguText = "Accepté";
 const colorBorderNoGood = "#f45265 solid 3px";
 const colorBorderGood = "#279e7a solid 3px";
 
+// Create variable for titles of the input value in console :
+const prenomTitre = "Prénom: ";
+const nomTitre = "Nom: ";
+const emailTitre = "Email: ";
+const dateTitre = "Date de naissance: ";
+const tournoisTitre = "Nombres de tournois participé: ";
+const villeTitre = "Ville: ";
+const cguTitre = "Condition générale d'utilisation: ";
 
 /* ººººººººººººººººººººººººººººººººººººººººººº */
 /*                    EVENTS                   */
@@ -117,68 +125,70 @@ function closeModal() {
 }
 
 
+//       ––––––––––––––––       \\ 
+// ----- DISPLAY FUNCTION ----- \\
+
+// Display error message in console and under the input :
+const displayError = (name, missName, noGoodName) => {
+    console.error(noGoodName);
+    missName.innerHTML += noGoodName;
+    name.style.border = colorBorderNoGood;
+    nbValidForm--;
+}
+
+// Display valid message in console with input value :
+const displayValid = (name, missName, title) => {
+    console.log(title + name.value || name.checked);
+    missName.innerHTML += "";
+    name.style.border = colorBorderGood;
+}
+
+
 //       ––––––––––––––––––––       \\ 
 // ----- CHECK INPUT FUNCTION ----- \\
 
-
-// check if input last and first are bigger than 2 :
-const checkInputNames = () => {
+// check if input first is bigger than 2 :
+const checkInputFirst = () => {
     if (first.value.length <= 2) {
-        console.error(noGoodFirst);
-        missFirst.innerHTML += noGoodFirst;
-        first.style.border = colorBorderNoGood;
-        nbValidForm--;
-    } else if (last.value.length <= 2) {
-        console.error(noGoodLast);
-        missLast.innerHTML += noGoodLast;
-        last.style.border = colorBorderNoGood;
-        nbValidForm--;
+        displayError(first, missFirst, noGoodFirst);
     } else {
-        console.log("Prénom: " + first.value);
-        console.log("Nom: " + last.value);
-        missFirst.innerHTML += "";
-        first.style.border = colorBorderGood;
-        last.style.border = colorBorderGood;
+        displayValid(first, missFirst, prenomTitre);
+    }
+}
+
+// check if input last is bigger than 2 :
+const checkInputLast = () => {
+    if (last.value.length <= 2) {
+        displayError(last, missLast, noGoodLast);
+    } else {
+        displayValid(last, missLast, nomTitre);
     }
 }
 
 // check if email is valid with Regex :
 const checkInputEmail = () => {
     if (emailValid.test(email.value)) {
-        console.log("Email: " + email.value);
-        email.style.border = colorBorderGood;
+        displayValid(email, missEmail, emailTitre);
     } else {
-        console.error(noGoodEmail)
-        missEmail.innerHTML += noGoodEmail;
-        email.style.border = colorBorderNoGood;
-        nbValidForm--;
+        displayError(email, missEmail, noGoodEmail);
     }
 }
 
 // check if date is valid with Regex :
 const checkInputDate = () => {
     if (dateValid.test(birthdate.value)) {
-        console.log("Date de naissance: " + birthdate.value);
-        birthdate.style.border = colorBorderGood;
+        displayValid(birthdate, missDate, dateTitre);
     } else {
-        console.error(noGoodDate);
-        missDate.innerHTML += noGoodDate;
-        birthdate.style.border = colorBorderNoGood;
-        nbValidForm--;
+        displayError(birthdate, missDate, noGoodDate);
     }
 }
 
 // check if qty is valid with this condition :
 const checkInputQty = () => {
     if (qty.value >= 1 && qty.value <= 99) {
-        console.log("Nombres de tournois participé: " + qty.value);
-        qty.style.border = colorBorderGood;
-
+        displayValid(qty, missQuantity, tournoisTitre);
     } else {
-        console.error(noGoodQty)
-        missQuantity.innerHTML += noGoodQty;
-        qty.style.border = colorBorderNoGood;
-        nbValidForm--;
+        displayError(qty, missQuantity, noGoodQty);
     }
 }
 
@@ -232,15 +242,16 @@ const checkInputEvt = () => {
 const checkValidForm = () => {
     console.log(nbValidForm + nbValidationText);
     if (nbValidForm <= 6) {
-        confirmationbg.style.display = "none"
+        confirmationbg.style.display = "none";
     } else {
-        confirmationbg.style.display = "flex"
+        confirmationbg.style.display = "flex";
     }
 }
 
 // Form main validation :
 const onClickSubmit = () => {
-    checkInputNames();
+    checkInputFirst();
+    checkInputLast();
     checkInputEmail();
     checkInputDate();
     checkInputQty();
