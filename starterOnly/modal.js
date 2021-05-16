@@ -70,7 +70,7 @@ const cities = [newYork, sanFransisco, seattle, chicago, boston, portland];
 let cguText = "Accepté";
 
 // Create variable for input border color change :
-const colorBorderNoGood = "red solid 3px";
+const colorBorderNoGood = "#f45265 solid 3px";
 const colorBorderGood = "#279e7a solid 3px";
 
 
@@ -220,7 +220,7 @@ const checkInputEvt = () => {
     if (nextEvent.checked == true) {
         console.log("Oui je veux être prévenu des prochains évènements.");
     } else {
-        console.log("Non je veux ne veut pas être prévenu des prochains évènements.");
+        console.log("Non je ne veut pas être prévenu des prochains évènements.");
     }
 }
 
