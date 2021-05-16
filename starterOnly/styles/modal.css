@@ -44,6 +44,12 @@
     padding-top: 10px;
 }
 
+@media screen and (max-width: 425px) {
+    .content {
+        margin: 0% auto;
+    }
+}
+
 .modal-body {
     padding: 15px 8%;
     margin: 15px auto;
@@ -416,7 +422,7 @@ footer {
     align-items: center;
     margin: 5% auto;
     width: 100%;
-    height: 90%;
+    height: 83%;
     max-width: 500px;
     animation-name: modalopen;
     animation-duration: var(--modal-duration);
@@ -425,7 +431,19 @@ footer {
     overflow: hidden;
     position: absolute;
     z-index: 55;
-    top: 20px;
+    top: 25px;
     color: #fff;
     /* padding-top: 10px; */
+}
+
+.confirmationText {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+@media screen and (max-width: 320px) {
+    .confirmation {
+        height: 85%;
+    }
 }
