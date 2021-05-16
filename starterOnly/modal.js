@@ -2,29 +2,26 @@
 /*                 DOM ELEMENTS                */
 /* ººººººººººººººººººººººººººººººººººººººººººº */
 
-// Import DOM modal Elements
+// Import DOM modal Elements :
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formClose = document.querySelectorAll("#close");
 const btnSubmit = document.querySelector(".btn-submit");
 
-// Import DOM input
+// Import DOM input :
 const first = document.getElementById("first");
 const last = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const qty = document.getElementById("quantity");
 
-// const location = document.querySelectorAll("location");
-
-// Import Elements Checkbox
+// Import Elements Checkbox :
 const newYork = document.getElementById("location1");
 const sanFransisco = document.getElementById("location2");
 const seattle = document.getElementById("location3");
 const chicago = document.getElementById("location4");
 const boston = document.getElementById("location5");
 const portland = document.getElementById("location6");
-const cities = [newYork, sanFransisco, seattle, chicago, boston, portland];
 const cgu = document.getElementById("checkbox1");
 const nextEvent = document.getElementById("checkbox2");
 
@@ -37,7 +34,7 @@ const missQuantity = document.getElementById("missQuantity");
 const missLocation = document.getElementById("missLocation");
 const missConditions = document.getElementById("missConditions");
 
-// Import DOM confirmation 
+// Import DOM confirmation :
 const closeConf = document.querySelector(".closeConfirmation");
 const confirmationbg = document.getElementById("confirmation");
 
@@ -60,21 +57,27 @@ const noGoodConditions = "Veillez cocher la case pour valider le formulaire.";
 const emailValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const dateValid = /^\d{4}-\d{2}-\d{2}$/;
 
+// Create counter :
 let nbValidForm = 7;
+
+// Create message for final counter in "checkValidForm" function :
 const nbValidationText = "/7 de champs validés";
+
+// Create array for gather each location :
+const cities = [newYork, sanFransisco, seattle, chicago, boston, portland];
 
 
 /* ººººººººººººººººººººººººººººººººººººººººººº */
 /*                    EVENTS                   */
 /* ººººººººººººººººººººººººººººººººººººººººººº */
 
-// launch modal event
+// launch modal event :
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
-// Close modal
+// Close modal :
 formClose.forEach((elt) => elt.addEventListener("click", closeModal));
 
-// on récupère l'évènement "event" au click du boutton "submit"
+// we get the event "event" at the click of the button "submit" :
 btnSubmit.addEventListener("click", (e) => {
     e.preventDefault();
     onClickSubmit(e);
@@ -86,7 +89,7 @@ btnSubmit.addEventListener("click", (e) => {
 /*                  FUNCTIONS                  */
 /* ººººººººººººººººººººººººººººººººººººººººººº */
 
-// Start modal
+// Start modal :
 function editNav() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
@@ -96,12 +99,12 @@ function editNav() {
     }
 }
 
-// launch modal form
+// launch modal form :
 function launchModal() {
     modalbg.style.display = "block";
 }
 
-// close modal form
+// close modal form :
 function closeModal() {
     modalbg.style.display = "none";
 }
@@ -111,14 +114,14 @@ function closeModal() {
 // ----- CHECK INPUT FUNCTION ----- \\
 
 
-// check if input last and first are bigger than 2
+// check if input last and first are bigger than 2 :
 const checkInputNames = () => {
     if (first.value.length <= 2) {
-        console.log(noGoodFirst);
+        console.error(noGoodFirst);
         missFirst.innerHTML += noGoodFirst;
         nbValidForm--;
     } else if (last.value.length <= 2) {
-        console.log(noGoodLast);
+        console.error(noGoodLast);
         missLast.innerHTML += noGoodLast;
         nbValidForm--;
     } else {
@@ -128,42 +131,42 @@ const checkInputNames = () => {
     }
 }
 
-// check if email is valid with Regex
+// check if email is valid with Regex :
 const checkInputEmail = () => {
     if (emailValid.test(email.value)) {
         console.log(email.value);
 
     } else {
-        console.log(noGoodEmail)
+        console.error(noGoodEmail)
         missEmail.innerHTML += noGoodEmail;
         nbValidForm--;
     }
 }
 
-// check if date is valid with Regex
+// check if date is valid with Regex :
 const checkInputDate = () => {
     if (dateValid.test(birthdate.value)) {
         console.log(birthdate.value);
     } else {
-        console.log(noGoodDate);
+        console.error(noGoodDate);
         missDate.innerHTML += noGoodDate;
         nbValidForm--;
     }
 }
 
-// check if qty is valid with this condition
+// check if qty is valid with this condition :
 const checkInputQty = () => {
     if (qty.value >= 1 && qty.value <= 99) {
         console.log(qty.value);
 
     } else {
-        console.log(noGoodQty)
+        console.error(noGoodQty)
         missQuantity.innerHTML += noGoodQty;
         nbValidForm--;
     }
 }
 
-// check if cities[tab] is checked with this condition ????
+// check if cities[tab] is checked with this condition :
 const checkInputCities = () => {
 
     for (var i = 0; i < cities.length; i++) {
@@ -173,7 +176,7 @@ const checkInputCities = () => {
     }
     if (cities.value == false || cities.checked == undefined) {
         missLocation.innerHTML += noGoodCity;
-        console.log(noGoodCity);
+        console.error(noGoodCity);
         nbValidForm--;
     } else {
         console.log(cities.checked);
@@ -181,7 +184,7 @@ const checkInputCities = () => {
     }
 }
 
-// check if checkbox1 is checked with this condition
+// check if checkbox1 is checked with this condition :
 const checkInputCgu = () => {
 
     if (cgu.checked == true) {
@@ -190,12 +193,12 @@ const checkInputCgu = () => {
 
     } else {
         missConditions.innerHTML += noGoodConditions;
-        console.log(noGoodConditions);
+        console.error(noGoodConditions);
         nbValidForm--;
     }
 }
 
-// check if checkbox2 is checked with this condition
+// check if checkbox2 is checked with this condition :
 const checkInputEvt = () => {
 
     if (nextEvent.checked == true) {
@@ -209,7 +212,7 @@ const checkInputEvt = () => {
 //       –––––––––––––––––––       \\ 
 // ----- VALIDATION FUNCTION ----- \\  
 
-// Validation message of form
+// Validation message of form :
 const checkValidForm = () => {
     console.log(nbValidForm + nbValidationText);
     if (nbValidForm <= 6) {
@@ -219,7 +222,7 @@ const checkValidForm = () => {
     }
 }
 
-// Form main validation
+// Form main validation :
 const onClickSubmit = () => {
     checkInputNames();
     checkInputEmail();
