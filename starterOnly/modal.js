@@ -60,7 +60,8 @@ const noGoodConditions = "Veillez cocher la case pour valider le formulaire.";
 const emailValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const dateValid = /^\d{4}-\d{2}-\d{2}$/;
 
-let nbValidForm = "";
+let nbValidForm = 7;
+const nbValidationText = "/7 de champs validés";
 
 
 /* ººººººººººººººººººººººººººººººººººººººººººº */
@@ -115,14 +116,15 @@ const checkInputNames = () => {
     if (first.value.length <= 2) {
         console.log(noGoodFirst);
         missFirst.innerHTML += noGoodFirst;
+        nbValidForm--;
     } else if (last.value.length <= 2) {
         console.log(noGoodLast);
         missLast.innerHTML += noGoodLast;
+        nbValidForm--;
     } else {
         console.log(first.value);
         console.log(last.value);
         missFirst.innerHTML += "";
-        nbValidForm = 1;
     }
 }
 
@@ -130,10 +132,11 @@ const checkInputNames = () => {
 const checkInputEmail = () => {
     if (emailValid.test(email.value)) {
         console.log(email.value);
-        nbValidForm = 2;
+
     } else {
         console.log(noGoodEmail)
         missEmail.innerHTML += noGoodEmail;
+        nbValidForm--;
     }
 }
 
@@ -141,10 +144,10 @@ const checkInputEmail = () => {
 const checkInputDate = () => {
     if (dateValid.test(birthdate.value)) {
         console.log(birthdate.value);
-        nbValidForm = 3;
     } else {
         console.log(noGoodDate);
         missDate.innerHTML += noGoodDate;
+        nbValidForm--;
     }
 }
 
@@ -152,10 +155,11 @@ const checkInputDate = () => {
 const checkInputQty = () => {
     if (qty.value >= 1 && qty.value <= 99) {
         console.log(qty.value);
-        nbValidForm = 4;
+
     } else {
         console.log(noGoodQty)
         missQuantity.innerHTML += noGoodQty;
+        nbValidForm--;
     }
 }
 
@@ -170,10 +174,10 @@ const checkInputCities = () => {
     if (cities.value == false || cities.checked == undefined) {
         missLocation.innerHTML += noGoodCity;
         console.log(noGoodCity);
+        nbValidForm--;
     } else {
         console.log(cities.checked);
         missLocation.innerHTML += "";
-        nbValidForm = 5;
     }
 }
 
@@ -183,10 +187,11 @@ const checkInputCgu = () => {
     if (cgu.checked == true) {
         console.log("CGU OK");
         missConditions.innerHTML += "";
-        nbValidForm = 6;
+
     } else {
         missConditions.innerHTML += noGoodConditions;
         console.log(noGoodConditions);
+        nbValidForm--;
     }
 }
 
@@ -204,9 +209,10 @@ const checkInputEvt = () => {
 //       –––––––––––––––––––       \\ 
 // ----- VALIDATION FUNCTION ----- \\  
 
-// Message validation of form
+// Validation message of form
 const checkValidForm = () => {
-    if (nbValidForm <= 5){
+    console.log(nbValidForm + nbValidationText);
+    if (nbValidForm <= 6) {
         confirmationbg.style.display = "none"
     } else {
         confirmationbg.style.display = "flex"
