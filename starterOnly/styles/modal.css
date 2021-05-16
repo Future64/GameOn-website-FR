@@ -44,12 +44,6 @@
     padding-top: 10px;
 }
 
-@media screen and (max-width: 425px) {
-    .content {
-        margin: 0% auto;
-    }
-}
-
 .modal-body {
     padding: 15px 8%;
     margin: 15px auto;
@@ -440,10 +434,4 @@ footer {
     display: flex;
     justify-content: center;
     text-align: center;
-}
-
-@media screen and (max-width: 320px) {
-    .confirmation {
-        height: 85%;
-    }
 }

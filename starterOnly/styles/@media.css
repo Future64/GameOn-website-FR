@@ -79,9 +79,6 @@
         display: block;
         /* margin-top: -15px; */
     }
-    .hero-content {
-        min-width: none;
-    }
 }
 
 @media screen and (max-width: 450px) {
@@ -96,8 +93,20 @@
     }
 }
 
+@media screen and (max-width: 425px) {
+    .content {
+        margin: 0% auto;
+    }
+}
+
 @media screen and (max-width: 340px) {
     .topnav a.icon {
         margin-top: -45px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .confirmation {
+        height: 85%;
     }
 }
