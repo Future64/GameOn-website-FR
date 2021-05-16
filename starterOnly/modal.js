@@ -69,6 +69,10 @@ const cities = [newYork, sanFransisco, seattle, chicago, boston, portland];
 // Create cguText :
 let cguText = "Accepté";
 
+// Create variable for input border color change :
+const colorBorderNoGood = "red solid 3px";
+const colorBorderGood = "#279e7a solid 3px";
+
 
 /* ººººººººººººººººººººººººººººººººººººººººººº */
 /*                    EVENTS                   */
@@ -122,15 +126,19 @@ const checkInputNames = () => {
     if (first.value.length <= 2) {
         console.error(noGoodFirst);
         missFirst.innerHTML += noGoodFirst;
+        first.style.border = colorBorderNoGood;
         nbValidForm--;
     } else if (last.value.length <= 2) {
         console.error(noGoodLast);
         missLast.innerHTML += noGoodLast;
+        last.style.border = colorBorderNoGood;
         nbValidForm--;
     } else {
         console.log("Prénom: " + first.value);
         console.log("Nom: " + last.value);
         missFirst.innerHTML += "";
+        first.style.border = colorBorderGood;
+        last.style.border = colorBorderGood;
     }
 }
 
@@ -138,10 +146,11 @@ const checkInputNames = () => {
 const checkInputEmail = () => {
     if (emailValid.test(email.value)) {
         console.log("Email: " + email.value);
-
+        email.style.border = colorBorderGood;
     } else {
         console.error(noGoodEmail)
         missEmail.innerHTML += noGoodEmail;
+        email.style.border = colorBorderNoGood;
         nbValidForm--;
     }
 }
@@ -150,9 +159,11 @@ const checkInputEmail = () => {
 const checkInputDate = () => {
     if (dateValid.test(birthdate.value)) {
         console.log("Date de naissance: " + birthdate.value);
+        birthdate.style.border = colorBorderGood;
     } else {
         console.error(noGoodDate);
         missDate.innerHTML += noGoodDate;
+        birthdate.style.border = colorBorderNoGood;
         nbValidForm--;
     }
 }
@@ -161,10 +172,12 @@ const checkInputDate = () => {
 const checkInputQty = () => {
     if (qty.value >= 1 && qty.value <= 99) {
         console.log("Nombres de tournois participé: " + qty.value);
+        qty.style.border = colorBorderGood;
 
     } else {
         console.error(noGoodQty)
         missQuantity.innerHTML += noGoodQty;
+        qty.style.border = colorBorderNoGood;
         nbValidForm--;
     }
 }
