@@ -63,6 +63,11 @@ img {
     display: none;
 }
 
+.formData span{
+    text-align: left;
+}
+
+
 main {
     font-size: 130%;
     font-weight: bolder;
@@ -74,6 +79,7 @@ main {
     border-radius: 2rem;
     text-align: justify;
 }
+
 
 .modal-btn {
     font-size: 145%;

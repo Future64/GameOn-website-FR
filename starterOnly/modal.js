@@ -82,6 +82,8 @@ const tournoisTitre = "Nombres de tournois participé: ";
 const villeTitre = "Ville: ";
 const cguTitre = "Condition générale d'utilisation: ";
 
+
+
 /* ººººººººººººººººººººººººººººººººººººººººººº */
 /*                    EVENTS                   */
 /* ººººººººººººººººººººººººººººººººººººººººººº */
@@ -131,7 +133,7 @@ function closeModal() {
 // Display error message in console and under the input :
 const displayError = (name, missName, noGoodName) => {
     console.error(noGoodName);
-    missName.innerHTML += noGoodName;
+    missName.innerHTML = noGoodName;
     name.style.border = colorBorderNoGood;
     nbValidForm--;
 }
@@ -196,29 +198,29 @@ const checkInputQty = () => {
 const checkInputCities = () => {
 
     for (var i = 0; i < cities.length; i++) {
-        if (cities[i].checked == true) {
+        if (cities[i].checked === true) {
             cities.checked = cities[i].value;
         }
     }
-    if (cities.value == false || cities.checked == undefined) {
-        missLocation.innerHTML += noGoodCity;
+    if (cities.value === false || cities.checked === undefined) {
+        missLocation.innerHTML = noGoodCity;
         console.error(noGoodCity);
         nbValidForm--;
     } else {
         console.log("Ville: " + cities.checked);
-        missLocation.innerHTML += "";
+        missLocation.innerHTML = "";
     }
 }
 
 // check if checkbox1 is checked with this condition :
 const checkInputCgu = () => {
 
-    if (cgu.checked == true) {
+    if (cgu.checked === true) {
         console.log("Condition générale d'utilisation: " + cguText);
-        missConditions.innerHTML += "";
+        missConditions.innerHTML = "";
 
     } else {
-        missConditions.innerHTML += noGoodConditions;
+        missConditions.innerHTML = noGoodConditions;
         console.error(noGoodConditions);
         nbValidForm--;
     }
@@ -227,7 +229,7 @@ const checkInputCgu = () => {
 // check if checkbox2 is checked with this condition :
 const checkInputEvt = () => {
 
-    if (nextEvent.checked == true) {
+    if (nextEvent.checked === true) {
         console.log("Oui je veux être prévenu des prochains évènements.");
     } else {
         console.log("Non je ne veut pas être prévenu des prochains évènements.");
@@ -250,6 +252,7 @@ const checkValidForm = () => {
 
 // Form main validation :
 const onClickSubmit = () => {
+    nbValidForm = 7;
     checkInputFirst();
     checkInputLast();
     checkInputEmail();
