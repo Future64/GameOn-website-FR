@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0302dea0-90a3-4799-9e0d-733b7aff12b9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/landing-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/landing-page.css" afterDir="false" />
-    </list>
+    <list default="true" id="0302dea0-90a3-4799-9e0d-733b7aff12b9" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +81,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -121,18 +119,17 @@
       <option name="presentableId" value="Default" />
       <updated>1621282021706</updated>
       <workItem from="1621282024573" duration="515000" />
-      <workItem from="1621325230152" duration="1782000" />
+      <workItem from="1621325230152" duration="1943000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2297000" />
+    <option name="totallyTimeSpent" value="2458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1385" y="25" width="1547" height="1338" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22477064" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22477064" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -149,7 +146,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32983872" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.24032257" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />

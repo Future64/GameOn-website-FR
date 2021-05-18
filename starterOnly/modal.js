@@ -7,6 +7,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formClose = document.querySelectorAll("#close");
 const btnSubmit = document.querySelector(".btn-submit");
+const btnValid = document.querySelector(".btn-valid");
 
 // Import DOM input :
 const first = document.getElementById("first");
@@ -94,6 +95,9 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // Close modal :
 formClose.forEach((elt) => elt.addEventListener("click", closeModal));
 
+// Close modal with btn-valid :
+btnValid.addEventListener("click", closeModal);
+
 // we get the event "event" at the click of the button "submit" :
 btnSubmit.addEventListener("click", (e) => {
     e.preventDefault();
@@ -141,7 +145,7 @@ const displayError = (name, missName, noGoodName) => {
 // Display valid message in console with input value :
 const displayValid = (name, missName, title) => {
     console.log(title + name.value || name.checked);
-    missName.innerHTML += "";
+    missName.innerHTML = "";
     name.style.border = colorBorderGood;
 }
 
@@ -247,7 +251,13 @@ const checkValidForm = () => {
         confirmationbg.style.display = "none";
     } else {
         confirmationbg.style.display = "flex";
+        btnValid.style.display = 'block';
     }
+}
+
+const validate = () => {
+    console.log("Formulaire validé !");
+    return false;
 }
 
 // Form main validation :
@@ -262,4 +272,6 @@ const onClickSubmit = () => {
     checkInputCgu();
     checkInputEvt();
     checkValidForm();
+    // validate();
+    return false;
 }

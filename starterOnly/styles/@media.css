@@ -105,8 +105,20 @@
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 425px) {
     .confirmation {
-        height: 85%;
+        height: 87%;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .confirmation {
+        height: 88%;
+    }
+}
+
+@media screen and (max-width: 304px) {
+    .confirmation {
+        height: 89%;
     }
 }
