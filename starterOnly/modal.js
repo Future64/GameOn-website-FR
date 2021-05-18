@@ -104,6 +104,25 @@ btnSubmit.addEventListener("click", (e) => {
     onClickSubmit(e);
 })
 
+first.addEventListener('input', () => {
+    checkInputFirst();
+})
+
+last.addEventListener('input', () => {
+    checkInputLast();
+})
+
+email.addEventListener('input', () => {
+    checkInputEmail();
+})
+
+birthdate.addEventListener('input', () => {
+    checkInputDate();
+})
+
+qty.addEventListener('input', () => {
+    checkInputQty();
+})
 
 
 /* ººººººººººººººººººººººººººººººººººººººººººº */
@@ -251,18 +270,15 @@ const checkValidForm = () => {
         confirmationbg.style.display = "none";
     } else {
         confirmationbg.style.display = "flex";
+        btnSubmit.style.display = 'none';
         btnValid.style.display = 'block';
-    }
-}
 
-const validate = () => {
-    console.log("Formulaire validé !");
-    return false;
+    }
 }
 
 // Form main validation :
 const onClickSubmit = () => {
-    nbValidForm = 7;
+    nbValidForm = 7; //reset counter
     checkInputFirst();
     checkInputLast();
     checkInputEmail();
@@ -272,6 +288,5 @@ const onClickSubmit = () => {
     checkInputCgu();
     checkInputEvt();
     checkValidForm();
-    // validate();
     return false;
 }
