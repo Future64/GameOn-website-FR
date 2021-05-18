@@ -75,13 +75,24 @@ const colorBorderNoGood = "#f45265 solid 3px";
 const colorBorderGood = "#279e7a solid 3px";
 
 // Create variable for titles of the input value in console :
-const prenomTitre = "Prénom: ";
-const nomTitre = "Nom: ";
-const emailTitre = "Email: ";
-const dateTitre = "Date de naissance: ";
-const tournoisTitre = "Nombres de tournois participé: ";
-const villeTitre = "Ville: ";
-const cguTitre = "Condition générale d'utilisation: ";
+// const prenomTitre = "Prénom: ";
+// const nomTitre = "Nom: ";
+// const emailTitre = "Email: ";
+// const dateTitre = "Date de naissance: ";
+// const tournoisTitre = "Nombres de tournois participé: ";
+// const villeTitre = "Ville: ";
+// const cguTitre = "Condition générale d'utilisation: ";
+
+const response = {
+    prenomTitre: '',
+    nomTitre: '',
+    emailTitre: '',
+    dateTitre: '',
+    tournoisTitre: '',
+    villeTitre: '',
+    cguTitre: false,
+    newsletter: false
+}
 
 
 
@@ -155,15 +166,17 @@ function closeModal() {
 
 // Display error message in console and under the input :
 const displayError = (name, missName, noGoodName) => {
-    console.error(noGoodName);
+    // console.error(noGoodName);
+    response.name = name.value;
     missName.innerHTML = noGoodName;
     name.style.border = colorBorderNoGood;
     nbValidForm--;
 }
 
 // Display valid message in console with input value :
-const displayValid = (name, missName, title) => {
-    console.log(title + name.value || name.checked);
+const displayValid = (name, missName, _title) => {
+    // console.log(title + name.value || name.checked);
+    response.title = name.value;
     missName.innerHTML = "";
     name.style.border = colorBorderGood;
 }
@@ -177,7 +190,7 @@ const checkInputFirst = () => {
     if (first.value.length <= 2) {
         displayError(first, missFirst, noGoodFirst);
     } else {
-        displayValid(first, missFirst, prenomTitre);
+        displayValid(first, missFirst, response.prenomTitre);
     }
 }
 
@@ -186,14 +199,14 @@ const checkInputLast = () => {
     if (last.value.length <= 2) {
         displayError(last, missLast, noGoodLast);
     } else {
-        displayValid(last, missLast, nomTitre);
+        displayValid(last, missLast, response.nomTitre);
     }
 }
 
 // check if email is valid with Regex :
 const checkInputEmail = () => {
     if (emailValid.test(email.value)) {
-        displayValid(email, missEmail, emailTitre);
+        displayValid(email, missEmail, response.emailTitre);
     } else {
         displayError(email, missEmail, noGoodEmail);
     }
@@ -202,7 +215,7 @@ const checkInputEmail = () => {
 // check if date is valid with Regex :
 const checkInputDate = () => {
     if (dateValid.test(birthdate.value)) {
-        displayValid(birthdate, missDate, dateTitre);
+        displayValid(birthdate, missDate, response.dateTitre);
     } else {
         displayError(birthdate, missDate, noGoodDate);
     }
@@ -211,7 +224,7 @@ const checkInputDate = () => {
 // check if qty is valid with this condition :
 const checkInputQty = () => {
     if (qty.value >= 1 && qty.value <= 99) {
-        displayValid(qty, missQuantity, tournoisTitre);
+        displayValid(qty, missQuantity, response.tournoisTitre);
     } else {
         displayError(qty, missQuantity, noGoodQty);
     }
@@ -266,13 +279,14 @@ const checkInputEvt = () => {
 // Validation message of form :
 const checkValidForm = () => {
     console.log(nbValidForm + nbValidationText);
+    console.log(response);
     if (nbValidForm <= 6) {
         confirmationbg.style.display = "none";
     } else {
+        console.log(response);
         confirmationbg.style.display = "flex";
         btnSubmit.style.display = 'none';
         btnValid.style.display = 'block';
-
     }
 }
 
