@@ -39,7 +39,7 @@
         padding: 12px 35px;
     }
     .copyrights {
-        margin-top: 50px;
+        margin-top: 10px;
         text-align: center;
     }
 }
@@ -68,16 +68,14 @@
     .bground {
         top: 75px
     }
+    .content {
+        margin: 0% auto;
+    }
 }
 
 @media screen and (max-width: 540px) {
     .topnav a {
         display: none;
-    }
-    .topnav a.icon {
-        float: right;
-        display: block;
-        /* margin-top: -15px; */
     }
 }
 
@@ -91,34 +89,20 @@
     .hero-headline {
         font-size: 50px;
     }
-}
-
-@media screen and (max-width: 425px) {
-    .content {
-        margin: 0% auto;
+    .logoGameon {
+        width: 150px;
+        margin-top: 9px;
     }
 }
 
-@media screen and (max-width: 340px) {
-    .topnav a.icon {
-        margin-top: -45px;
+@media screen and (max-width: 260px) {
+    .btn-submit,
+    .btn-valid {
+        padding: 12px;
     }
-}
-
-@media screen and (max-width: 425px) {
-    .confirmation {
-        height: 87%;
-    }
-}
-
-@media screen and (max-width: 340px) {
-    .confirmation {
-        height: 88%;
-    }
-}
-
-@media screen and (max-width: 304px) {
-    .confirmation {
-        height: 89%;
+    .hero-section>.btn-signup {
+        display: block;
+        margin: 32px auto 10px;
+        padding: 12px;
     }
 }

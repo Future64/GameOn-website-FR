@@ -31,13 +31,19 @@ img {
     float: left;
 }
 
+.logoGameon {
+    padding-right: 0rem;
+    width: auto;
+    height: auto;
+}
+
 .main-navbar {
     float: right;
 }
 
 .topnav a {
     float: left;
-    display: block;
+    display: flex;
     color: #000000;
     text-align: center;
     padding: 12px 12px;
