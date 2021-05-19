@@ -74,24 +74,16 @@ let cguText = "Accepté";
 const colorBorderNoGood = "#f45265 solid 3px";
 const colorBorderGood = "#279e7a solid 3px";
 
-// Create variable for titles of the input value in console :
-// const prenomTitre = "Prénom: ";
-// const nomTitre = "Nom: ";
-// const emailTitre = "Email: ";
-// const dateTitre = "Date de naissance: ";
-// const tournoisTitre = "Nombres de tournois participé: ";
-// const villeTitre = "Ville: ";
-// const cguTitre = "Condition générale d'utilisation: ";
-
-const response = {
-    prenomTitre: '',
-    nomTitre: '',
-    emailTitre: '',
-    dateTitre: '',
-    tournoisTitre: '',
-    villeTitre: '',
+// Initialisation object for save input value :
+let response = {
+    prenomTitre: "",
+    nomTitre: "",
+    emailTitre: "",
+    dateTitre: "",
+    tournoisTitre: "",
+    villeTitre: "",
     cguTitre: false,
-    newsletter: false
+    newsletter: false,
 }
 
 
@@ -114,6 +106,10 @@ btnSubmit.addEventListener("click", (e) => {
     e.preventDefault();
     onClickSubmit(e);
 })
+
+
+//       –––––––––––––––––––       \\ 
+// -------- INPUT EVENTS --------- \\  
 
 first.addEventListener('input', () => {
     checkInputFirst();
@@ -165,20 +161,17 @@ function closeModal() {
 // ----- DISPLAY FUNCTION ----- \\
 
 // Display error message in console and under the input :
-const displayError = (name, missName, noGoodName) => {
-    // console.error(noGoodName);
-    response.name = name.value;
-    missName.innerHTML = noGoodName;
-    name.style.border = colorBorderNoGood;
+const displayError = (input, msgError, noGoodName) => {
+    msgError.innerHTML = noGoodName;
+    input.style.border = colorBorderNoGood;
     nbValidForm--;
 }
 
 // Display valid message in console with input value :
-const displayValid = (name, missName, _title) => {
-    // console.log(title + name.value || name.checked);
-    response.title = name.value;
-    missName.innerHTML = "";
-    name.style.border = colorBorderGood;
+const displayValid = (input, msgError, [object]) => {
+    response[object] = input.value;
+    msgError.innerHTML = "";
+    input.style.border = colorBorderGood;
 }
 
 
@@ -190,7 +183,7 @@ const checkInputFirst = () => {
     if (first.value.length <= 2) {
         displayError(first, missFirst, noGoodFirst);
     } else {
-        displayValid(first, missFirst, response.prenomTitre);
+        displayValid(first, missFirst, ["prenomTitre"]);
     }
 }
 
@@ -199,14 +192,14 @@ const checkInputLast = () => {
     if (last.value.length <= 2) {
         displayError(last, missLast, noGoodLast);
     } else {
-        displayValid(last, missLast, response.nomTitre);
+        displayValid(last, missLast, ["nomTitre"]);
     }
 }
 
 // check if email is valid with Regex :
 const checkInputEmail = () => {
     if (emailValid.test(email.value)) {
-        displayValid(email, missEmail, response.emailTitre);
+        displayValid(email, missEmail, ["emailTitre"]);
     } else {
         displayError(email, missEmail, noGoodEmail);
     }
@@ -215,7 +208,7 @@ const checkInputEmail = () => {
 // check if date is valid with Regex :
 const checkInputDate = () => {
     if (dateValid.test(birthdate.value)) {
-        displayValid(birthdate, missDate, response.dateTitre);
+        displayValid(birthdate, missDate, ["dateTitre"]);
     } else {
         displayError(birthdate, missDate, noGoodDate);
     }
@@ -224,7 +217,7 @@ const checkInputDate = () => {
 // check if qty is valid with this condition :
 const checkInputQty = () => {
     if (qty.value >= 1 && qty.value <= 99) {
-        displayValid(qty, missQuantity, response.tournoisTitre);
+        displayValid(qty, missQuantity, ["tournoisTitre"]);
     } else {
         displayError(qty, missQuantity, noGoodQty);
     }
@@ -240,10 +233,9 @@ const checkInputCities = () => {
     }
     if (cities.value === false || cities.checked === undefined) {
         missLocation.innerHTML = noGoodCity;
-        console.error(noGoodCity);
         nbValidForm--;
     } else {
-        console.log("Ville: " + cities.checked);
+        response["villeTitre"] = cities.checked;
         missLocation.innerHTML = "";
     }
 }
@@ -252,12 +244,12 @@ const checkInputCities = () => {
 const checkInputCgu = () => {
 
     if (cgu.checked === true) {
-        console.log("Condition générale d'utilisation: " + cguText);
+        response["cguTitre"] = true;
         missConditions.innerHTML = "";
 
     } else {
         missConditions.innerHTML = noGoodConditions;
-        console.error(noGoodConditions);
+        response["cguTitre"] = false;
         nbValidForm--;
     }
 }
@@ -266,9 +258,9 @@ const checkInputCgu = () => {
 const checkInputEvt = () => {
 
     if (nextEvent.checked === true) {
-        console.log("Oui je veux être prévenu des prochains évènements.");
+        response["newsletter"] = true;
     } else {
-        console.log("Non je ne veut pas être prévenu des prochains évènements.");
+        nextEvent.checked = false;
     }
 }
 
@@ -279,7 +271,6 @@ const checkInputEvt = () => {
 // Validation message of form :
 const checkValidForm = () => {
     console.log(nbValidForm + nbValidationText);
-    console.log(response);
     if (nbValidForm <= 6) {
         confirmationbg.style.display = "none";
     } else {
@@ -288,6 +279,10 @@ const checkValidForm = () => {
         btnSubmit.style.display = 'none';
         btnValid.style.display = 'block';
     }
+}
+
+const validate = () => {
+    return false;
 }
 
 // Form main validation :
@@ -302,5 +297,5 @@ const onClickSubmit = () => {
     checkInputCgu();
     checkInputEvt();
     checkValidForm();
-    return false;
+    validate();
 }
