@@ -76,14 +76,14 @@ const colorBorderGood = "#279e7a solid 3px";
 
 // Initialisation object for save input value :
 let response = {
-    prenomTitre: "",
-    nomTitre: "",
-    emailTitre: "",
-    dateTitre: "",
-    tournoisTitre: "",
-    villeTitre: "",
-    cguTitre: false,
-    newsletter: false,
+    Fisrstname: "",
+    Lastname: "",
+    Email: "",
+    Birthdate: "",
+    Tournois: "",
+    City: "",
+    Cgu: false,
+    Newsletter: false,
 }
 
 
@@ -183,7 +183,7 @@ const checkInputFirst = () => {
     if (first.value.length <= 2) {
         displayError(first, missFirst, noGoodFirst);
     } else {
-        displayValid(first, missFirst, ["prenomTitre"]);
+        displayValid(first, missFirst, ["Fisrstname"]);
     }
 }
 
@@ -192,14 +192,14 @@ const checkInputLast = () => {
     if (last.value.length <= 2) {
         displayError(last, missLast, noGoodLast);
     } else {
-        displayValid(last, missLast, ["nomTitre"]);
+        displayValid(last, missLast, ["Lastname"]);
     }
 }
 
 // check if email is valid with Regex :
 const checkInputEmail = () => {
     if (emailValid.test(email.value)) {
-        displayValid(email, missEmail, ["emailTitre"]);
+        displayValid(email, missEmail, ["Email"]);
     } else {
         displayError(email, missEmail, noGoodEmail);
     }
@@ -208,7 +208,7 @@ const checkInputEmail = () => {
 // check if date is valid with Regex :
 const checkInputDate = () => {
     if (dateValid.test(birthdate.value)) {
-        displayValid(birthdate, missDate, ["dateTitre"]);
+        displayValid(birthdate, missDate, ["Birthdate"]);
     } else {
         displayError(birthdate, missDate, noGoodDate);
     }
@@ -217,7 +217,7 @@ const checkInputDate = () => {
 // check if qty is valid with this condition :
 const checkInputQty = () => {
     if (qty.value >= 1 && qty.value <= 99) {
-        displayValid(qty, missQuantity, ["tournoisTitre"]);
+        displayValid(qty, missQuantity, ["Tournois"]);
     } else {
         displayError(qty, missQuantity, noGoodQty);
     }
@@ -235,7 +235,7 @@ const checkInputCities = () => {
         missLocation.innerHTML = noGoodCity;
         nbValidForm--;
     } else {
-        response["villeTitre"] = cities.checked;
+        response["City"] = cities.checked;
         missLocation.innerHTML = "";
     }
 }
@@ -244,12 +244,12 @@ const checkInputCities = () => {
 const checkInputCgu = () => {
 
     if (cgu.checked === true) {
-        response["cguTitre"] = true;
+        response["Cgu"] = true;
         missConditions.innerHTML = "";
 
     } else {
         missConditions.innerHTML = noGoodConditions;
-        response["cguTitre"] = false;
+        response["Cgu"] = false;
         nbValidForm--;
     }
 }
@@ -258,7 +258,7 @@ const checkInputCgu = () => {
 const checkInputEvt = () => {
 
     if (nextEvent.checked === true) {
-        response["newsletter"] = true;
+        response["Newsletter"] = true;
     } else {
         nextEvent.checked = false;
     }
