@@ -357,7 +357,7 @@ input[data-error]::after {
 }
 
 .hero-section {
-    min-height: 93vh;
+    min-height: 73vh;
     -webkit-border-radius: 10px;
     border-radius: 10px;
     display: -ms-grid;
