@@ -9,6 +9,7 @@
         display: block;
         -webkit-box-shadow: unset;
         box-shadow: unset;
+        min-height: 0vh;
     }
     .hero-content {
         background: #fff;
