@@ -62,7 +62,7 @@ const dateValid = /^\d{4}-\d{2}-\d{2}$/;
 let nbValidForm = 7;
 
 // Create message for final counter in "checkValidForm" function :
-const nbValidationText = "/7 de champs validés";
+const nbValidationText = " sur 7 champs validés";
 
 // Create array for gather each location :
 const cities = [newYork, sanFransisco, seattle, chicago, boston, portland];
