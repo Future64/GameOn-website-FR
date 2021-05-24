@@ -92,7 +92,7 @@ let response = {
 /*                    EVENTS                   */
 /* ººººººººººººººººººººººººººººººººººººººººººº */
 
-// launch modal event :
+// Launch modal event :
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // Close modal :
@@ -101,7 +101,7 @@ formClose.forEach((elt) => elt.addEventListener("click", closeModal));
 // Close modal with btn-valid :
 btnValid.addEventListener("click", closeModal);
 
-// we get the event "event" at the click of the button "submit" :
+// we get the event "event" by clicking on the button "submit" :
 btnSubmit.addEventListener("click", (e) => {
     e.preventDefault();
     onClickSubmit(e);
@@ -146,12 +146,12 @@ function editNav() {
     }
 }
 
-// launch modal form :
+// Launch modal form :
 function launchModal() {
     modalbg.style.display = "block";
 }
 
-// close modal form :
+// Close modal form :
 function closeModal() {
     modalbg.style.display = "none";
 }
@@ -178,7 +178,7 @@ const displayValid = (input, msgError, [object]) => {
 //       ––––––––––––––––––––       \\ 
 // ----- CHECK INPUT FUNCTION ----- \\
 
-// check if input first is bigger than 2 :
+// check if the first input is bigger than 2 :
 const checkInputFirst = () => {
     if (first.value.length <= 2) {
         displayError(first, missFirst, noGoodFirst);
@@ -187,7 +187,7 @@ const checkInputFirst = () => {
     }
 }
 
-// check if input last is bigger than 2 :
+// check if the last input is bigger than 2 :
 const checkInputLast = () => {
     if (last.value.length <= 2) {
         displayError(last, missLast, noGoodLast);
@@ -281,6 +281,7 @@ const checkValidForm = () => {
     }
 }
 
+// Validation of form verified:
 const validate = () => {
     return false;
 }
