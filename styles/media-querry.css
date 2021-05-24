@@ -1,10 +1,4 @@
-@media screen and (max-width: 950px) {
-    .hero-headline {
-        font-size: 80px;
-    }
-}
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1092px) {
     .hero-section {
         display: block;
         -webkit-box-shadow: unset;
@@ -47,7 +41,7 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 823px) {
     .topnav a {
         display: none;
     }

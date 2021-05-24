@@ -104,7 +104,7 @@ btnValid.addEventListener("click", closeModal);
 // we get the event "event" by clicking on the button "submit" :
 btnSubmit.addEventListener("click", (e) => {
     e.preventDefault();
-    onClickSubmit(e);
+    onClickSubmit();
 })
 
 
@@ -180,7 +180,7 @@ const displayValid = (input, msgError, [object]) => {
 
 // check if the first input is bigger than 2 :
 const checkInputFirst = () => {
-    if (first.value.length <= 2) {
+    if (first.value.length < 2) {
         displayError(first, missFirst, noGoodFirst);
     } else {
         displayValid(first, missFirst, ["Fisrstname"]);
@@ -189,7 +189,7 @@ const checkInputFirst = () => {
 
 // check if the last input is bigger than 2 :
 const checkInputLast = () => {
-    if (last.value.length <= 2) {
+    if (last.value.length < 2) {
         displayError(last, missLast, noGoodLast);
     } else {
         displayValid(last, missLast, ["Lastname"]);
